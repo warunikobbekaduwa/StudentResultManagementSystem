@@ -44,8 +44,8 @@ include('includes/config.php');?>
 
                             <form action="result.php" method="post">
                                 <div class="form-group">
-                                    <label for="rollid">Enter your Roll Id</label>
-                                    <input type="text" class="form-control" id="rollid" placeholder="Enter Your Roll Id" autocomplete="off" name="rollid">
+                                    <label for="rollid">Enter your Student ID</label>
+                                    <input type="text" class="form-control" id="rollid" placeholder="Enter Your Student ID" autocomplete="off" name="rollid">
                                 </div>
                                 <div class="form-group">
                                     <label for="default" class="col-sm-2 control-label">Class</label>
