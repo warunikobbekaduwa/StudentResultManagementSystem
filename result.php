@@ -62,7 +62,7 @@ $resultss = $stmt->fetchAll(PDO::FETCH_OBJ);
 if ($stmt->rowCount() > 0) {
     foreach ($resultss as $row) { ?>
         <p><b>Student Name :</b> <?php echo htmlentities($row->StudentName); ?></p>
-        <p><b>Student Roll Id :</b> <?php echo htmlentities($row->RollId); ?></p>
+        <p><b>Student Id :</b> <?php echo htmlentities($row->RollId); ?></p>
         <p><b>Student Class:</b> <?php echo htmlentities($row->ClassName); ?> (<?php echo htmlentities($row->Section); ?>)</p>
     <?php }
 }
