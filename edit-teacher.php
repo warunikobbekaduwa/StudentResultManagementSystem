@@ -126,22 +126,14 @@ if(strlen($_SESSION['alogin'])=="") {
                                                                 ?>
                                                                     <input type="radio" name="gender" value="Male" required="required" checked>Male 
                                                                     <input type="radio" name="gender" value="Female" required="required">Female 
-                                                                    <input type="radio" name="gender" value="Other" required="required">Other
                                                                 <?php } ?>
                                                                 <?php  
                                                                 if($gndr == "Female") {
                                                                 ?>
                                                                     <input type="radio" name="gender" value="Male" required="required">Male 
                                                                     <input type="radio" name="gender" value="Female" required="required" checked>Female 
-                                                                    <input type="radio" name="gender" value="Other" required="required">Other
                                                                 <?php } ?>
-                                                                <?php  
-                                                                if($gndr == "Other") {
-                                                                ?>
-                                                                    <input type="radio" name="gender" value="Male" required="required">Male 
-                                                                    <input type="radio" name="gender" value="Female" required="required">Female 
-                                                                    <input type="radio" name="gender" value="Other" required="required" checked>Other
-                                                                <?php } ?>
+                                                                
                                                             </div>
                                                         </div>
 
