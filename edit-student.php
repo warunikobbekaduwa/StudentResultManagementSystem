@@ -131,7 +131,7 @@ foreach($results as $result)
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Rool Id</label>
+<label for="default" class="col-sm-2 control-label">Student Id</label>
 <div class="col-sm-10">
 <input type="text" name="rollid" class="form-control" id="rollid" value="<?php echo htmlentities($result->RollId)?>" maxlength="5" required="required" autocomplete="off">
 </div>
@@ -140,7 +140,7 @@ foreach($results as $result)
 <div class="form-group">
 <label for="default" class="col-sm-2 control-label">Email id)</label>
 <div class="col-sm-10">
-<input type="email" name="emailid" class="form-control" id="email" value="<?php echo htmlentities($result->StudentEmail)?>" required="required" autocomplete="off">
+<input type="email" name="emailid" class="form-control" id="email" value="<?php echo htmlentities($result->StudentEmail)?>" autocomplete="off">
 </div>
 </div>
 
@@ -153,20 +153,16 @@ foreach($results as $result)
 if($gndr=="Male")
 {
 ?>
-<input type="radio" name="gender" value="Male" required="required" checked>Male <input type="radio" name="gender" value="Female" required="required">Female <input type="radio" name="gender" value="Other" required="required">Other
+<input type="radio" name="gender" value="Male" required="required" checked>Male <input type="radio" name="gender" value="Female" required="required">Female
 <?php }?>
 <?php  
 if($gndr=="Female")
 {
 ?>
-<input type="radio" name="gender" value="Male" required="required" >Male <input type="radio" name="gender" value="Female" required="required" checked>Female <input type="radio" name="gender" value="Other" required="required">Other
+<input type="radio" name="gender" value="Male" required="required" >Male <input type="radio" name="gender" value="Female" required="required" checked>Female
 <?php }?>
-<?php  
-if($gndr=="Other")
-{
-?>
-<input type="radio" name="gender" value="Male" required="required" >Male <input type="radio" name="gender" value="Female" required="required">Female <input type="radio" name="gender" value="Other" required="required" checked>Other
-<?php }?>
+ 
+
 
 
 </div>
