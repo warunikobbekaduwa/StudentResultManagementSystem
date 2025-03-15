@@ -8,7 +8,22 @@ if(strlen($_SESSION['alogin'])=="")
     header("Location: index.php"); 
     }
     else{
-
+    // Delete student if delete request is received
+    if(isset($_GET['delete'])) {
+        $studentId = intval($_GET['delete']);
+        $sql = "DELETE FROM tblstudents WHERE StudentId=:studentId";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':studentId', $studentId, PDO::PARAM_INT);
+        
+        if($query->execute()) {
+            $_SESSION['msg'] = "Student deleted successfully!";
+        } else {
+            $_SESSION['error'] = "Error deleting student!";
+        }
+        
+        header("Location: manage-students.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,6 +169,8 @@ else{
 <a href="edit-student.php?stid=<?php echo htmlentities($result->StudentId);?>" class="btn btn-primary btn-xs" target="_blank">Edit </a> 
 
 <a href="edit-result.php?stid=<?php echo htmlentities($result->StudentId);?>" class="btn btn-warning btn-xs" target="_blank">View Result </a> 
+
+<a href="manage-students.php?delete=<?php echo htmlentities($result->StudentId); ?>" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>
 
 </td>
 </tr>
