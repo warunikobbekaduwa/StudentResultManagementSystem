@@ -50,6 +50,10 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                 background-color:rgb(59, 55, 50) !important; /* Change this color */
             }
 
+            .col-lg-3 {
+                margin-left: 25px; /* Adjust the value as needed */
+            }
+
         </style>
         <script src="js/modernizr/modernizr.min.js"></script>
     </head>
