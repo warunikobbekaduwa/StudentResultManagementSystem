@@ -16,9 +16,25 @@ include('includes/config.php');
         <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
         <link rel="stylesheet" href="css/prism/prism.css" media="screen" >
         <link rel="stylesheet" href="css/main.css" media="screen" >
+        <link rel="stylesheet" href="css/cube.css" media="screen">
+        <style>
+            .cube {
+                background-color:rgb(235, 183, 248) !important; /* Change this color */
+            }
+        </style>
         <script src="js/modernizr/modernizr.min.js"></script>
     </head>
     <body>
+                <!-- Cube container to fill the full background -->
+        <div class="cube-container">
+            <!-- Create a large number of cubes dynamically -->
+            <?php
+            // Generate 300 cubes for better coverage
+            for ($i = 0; $i < 300; $i++) {
+                echo '<div class="cube" style="top:' . rand(0, 100) . '%; left:' . rand(0, 100) . '%; animation-delay:' . rand(0, 5) . 's;"></div>';
+            }
+            ?>
+        </div>
         <div class="main-wrapper">
             <div class="content-wrapper">
                 <div class="content-container">
