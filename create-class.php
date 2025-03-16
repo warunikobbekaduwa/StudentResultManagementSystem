@@ -2,80 +2,97 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])=="")
-    {   
-    header("Location: index.php"); 
-    }
-    else{
-if(isset($_POST['submit']))
-{
-$classname=$_POST['classname'];
-$classnamenumeric=$_POST['classnamenumeric']; 
-$section=$_POST['section'];
-$sql="INSERT INTO  tblclasses(ClassName,ClassNameNumeric,Section) VALUES(:classname,:classnamenumeric,:section)";
-$query = $dbh->prepare($sql);
-$query->bindParam(':classname',$classname,PDO::PARAM_STR);
-$query->bindParam(':classnamenumeric',$classnamenumeric,PDO::PARAM_STR);
-$query->bindParam(':section',$section,PDO::PARAM_STR);
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-$msg="Class Created successfully";
-}
-else 
-{
-$error="Something went wrong. Please try again";
-}
+if (strlen($_SESSION['alogin']) == "") {
+    header("Location: index.php");
+} else {
+    if (isset($_POST['submit'])) {
+        $classname = $_POST['classname'];
+        $classnamenumeric = $_POST['classnamenumeric'];
+        $section = $_POST['section'];
+        $sql = "INSERT INTO  tblclasses(ClassName,ClassNameNumeric,Section) VALUES(:classname,:classnamenumeric,:section)";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':classname', $classname, PDO::PARAM_STR);
+        $query->bindParam(':classnamenumeric', $classnamenumeric, PDO::PARAM_STR);
+        $query->bindParam(':section', $section, PDO::PARAM_STR);
+        $query->execute();
+        $lastInsertId = $dbh->lastInsertId();
+        if ($lastInsertId) {
+            $msg = "Class Created successfully";
+        } else {
+            $error = "Something went wrong. Please try again";
+        }
 
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
+    }
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SMS Admin Create Class</title>
-        <link rel="stylesheet" href="css/bootstrap.css" media="screen" >
-        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
-        <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
-        <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
-        <link rel="stylesheet" href="css/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
-        <link rel="stylesheet" href="css/main.css" media="screen" >
+        <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen">
+        <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen">
+        <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen">
+        <link rel="stylesheet" href="css/prism/prism.css" media="screen"> <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
+        <link rel="stylesheet" href="css/main.css" media="screen">
         <script src="js/modernizr/modernizr.min.js"></script>
-         <style>
-        .errorWrap {
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solid #dd3d36;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-.succWrap{
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solidrgb(64, 23, 170);
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
+        <style>
+            .form-group label {
+                color: #FF5733;
+                /* Set to your desired color (e.g., red) */
+            }
+
+            .form-group.has-success label {
+                color: rgb(63, 40, 167);
+                /* Green color for success */
+            }
+
+            .help-block {
+                color: #FF5733;
+                /* Change to your desired color (e.g., red) */
+            }
+
+            .form-group.has-success .help-block {
+                color: rgb(96, 177, 209);
+                /* Green color for success */
+            }
+
+            .errorWrap {
+                padding: 10px;
+                margin: 0 0 20px 0;
+                background: #fff;
+                border-left: 4px solid #dd3d36;
+                -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+            }
+
+            .succWrap {
+                padding: 10px;
+                margin: 0 0 20px 0;
+                background: #fff;
+                border-left: 4px solidrgb(64, 23, 170);
+                -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+            }
         </style>
     </head>
+
     <body class="top-navbar-fixed">
         <div class="main-wrapper">
 
             <!-- ========== TOP NAVBAR ========== -->
-            <?php include('includes/topbar.php');?>   
-          <!-----End Top bar>
+            <?php include('includes/topbar.php'); ?>
+            <!-----End Top bar>
             <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
             <div class="content-wrapper">
                 <div class="content-container">
 
-<!-- ========== LEFT SIDEBAR ========== -->
-<?php include('includes/leftbar.php');?>                   
- <!-- /.left-sidebar -->
+                    <!-- ========== LEFT SIDEBAR ========== -->
+                    <?php include('includes/leftbar.php'); ?>
+                    <!-- /.left-sidebar -->
 
                     <div class="main-page">
                         <div class="container-fluid">
@@ -83,18 +100,18 @@ $error="Something went wrong. Please try again";
                                 <div class="col-md-6">
                                     <h2 class="title">Create Student Class</h2>
                                 </div>
-                                
+
                             </div>
                             <!-- /.row -->
                             <div class="row breadcrumb-div">
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
-            							<li><a href="dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-            							<li><a href="#">Classes</a></li>
-            							<li class="active">Create Class</li>
-            						</ul>
+                                        <li><a href="dashboard.php"><i class="fa fa-home"></i> Home</a></li>
+                                        <li><a href="#">Classes</a></li>
+                                        <li class="active">Create Class</li>
+                                    </ul>
                                 </div>
-                               
+
                             </div>
                             <!-- /.row -->
                         </div>
@@ -103,9 +120,9 @@ $error="Something went wrong. Please try again";
                         <section class="section">
                             <div class="container-fluid">
 
-                             
 
-                              
+
+
 
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2">
@@ -115,51 +132,58 @@ $error="Something went wrong. Please try again";
                                                     <h5>Create Student Class</h5>
                                                 </div>
                                             </div>
-           <?php if($msg){?>
-<div class="alert alert-success left-icon-alert" role="alert">
- <strong>Well done!</strong><?php echo htmlentities($msg); ?>
- </div><?php } 
-else if($error){?>
-    <div class="alert alert-danger left-icon-alert" role="alert">
-                                            <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
-                                        </div>
-                                        <?php } ?>
-  
+                                            <?php if ($msg) { ?>
+                                                <div class="alert alert-success left-icon-alert" role="alert">
+                                                    <strong>Well done!</strong><?php echo htmlentities($msg); ?>
+                                                </div><?php } else if ($error) { ?>
+                                                    <div class="alert alert-danger left-icon-alert" role="alert">
+                                                        <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
+                                                    </div>
+                                            <?php } ?>
+
                                             <div class="panel-body">
 
                                                 <form method="post">
                                                     <div class="form-group has-success">
                                                         <label for="success" class="control-label">Class Name</label>
-                                                		<div class="">
-                                                			<input type="text" name="classname" class="form-control" required="required" id="success">
-                                                            <span class="help-block">Eg- Third, Fouth,Sixth etc</span>
-                                                		</div>
-                                                	</div>
-                                                       <div class="form-group has-success">
-                                                        <label for="success" class="control-label">Class Name in Numeric</label>
                                                         <div class="">
-                                                            <input type="number" name="classnamenumeric" required="required" class="form-control" id="success">
+                                                            <input type="text" name="classname" class="form-control"
+                                                                required="required" id="success">
+                                                            <span class="help-block">Eg- Third, Fouth,Sixth etc</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-success">
+                                                        <label for="success" class="control-label">Class Name in
+                                                            Numeric</label>
+                                                        <div class="">
+                                                            <input type="number" name="classnamenumeric" required="required"
+                                                                class="form-control" id="success">
                                                             <span class="help-block">Eg- 1,2,4,5 etc</span>
                                                         </div>
                                                     </div>
-                                                     <div class="form-group has-success">
+                                                    <div class="form-group has-success">
                                                         <label for="success" class="control-label">Section</label>
                                                         <div class="">
-                                                            <input type="text" name="section" class="form-control" required="required" id="success">
+                                                            <input type="text" name="section" class="form-control"
+                                                                required="required" id="success">
                                                             <span class="help-block">Eg- A,B,C etc</span>
                                                         </div>
                                                     </div>
-  <div class="form-group has-success">
+                                                    <div class="form-group has-success">
 
                                                         <div class="">
-                                                           <button type="submit" name="submit" class="btn btn-success btn-labeled">Submit<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    </div>
+                                                            <button type="submit" name="submit"
+                                                                class="btn btn-success btn-labeled"
+                                                                style="background-color:rgb(175, 166, 43); border-color:rgb(241, 6, 53);">Submit<span
+                                                                    class="btn-label btn-label-right"><i
+                                                                        class="fa fa-check"></i></span></button>
+                                                        </div>
 
 
-                                                    
+
                                                 </form>
 
-                                              
+
                                             </div>
                                         </div>
                                     </div>
@@ -167,8 +191,8 @@ else if($error){?>
                                 </div>
                                 <!-- /.row -->
 
-                               
-                               
+
+
 
                             </div>
                             <!-- /.container-fluid -->
@@ -204,5 +228,6 @@ else if($error){?>
 
         <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
     </body>
-</html>
-<?php  } ?>
+
+    </html>
+<?php } ?>
