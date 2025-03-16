@@ -57,7 +57,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 
                                     <div class="row mt-30 ">
                                         <div class="col-md-11">
-                                            <div class="panel">
+                                            <div class="panel" style="background-color:rgb(221, 223, 216);">
                                                 <div class="panel-heading">
                                                     <div class="panel-title text-center">
                                                         <h4>Admin Login</h4>
