@@ -124,7 +124,7 @@ else if($error){?>
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Student Name</th>
-                                                            <th>Roll Id</th>
+                                                            <th>Student Id</th>
                                                             <th>Class</th>
                                                             <th>Reg Date</th>
                                                             <th>Status</th>
@@ -135,7 +135,7 @@ else if($error){?>
                                                         <tr>
                                                           <th>#</th>
                                                             <th>Student Name</th>
-                                                            <th>Roll Id</th>
+                                                            <th>Student Id</th>
                                                             <th>Class</th>
                                                             <th>Reg Date</th>
                                                             <th>Status</th>
