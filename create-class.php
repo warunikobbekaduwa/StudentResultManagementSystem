@@ -57,7 +57,7 @@ $error="Something went wrong. Please try again";
     padding: 10px;
     margin: 0 0 20px 0;
     background: #fff;
-    border-left: 4px solid #5cb85c;
+    border-left: 4px solidrgb(64, 23, 170);
     -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }

@@ -82,7 +82,9 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                                         <div class="form-group mt-20">
                                                     		<div class="col-sm-offset-2 col-sm-10">
                                                            
-                                                    			<button type="submit" name="login" class="btn btn-success btn-labeled pull-right">Sign in<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
+                                                            <button type="submit" name="login" class="btn btn-labeled pull-right" style="background-color:rgb(243, 147, 235); border-color:rgb(241, 6, 53);">
+                                                                Sign in<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span>
+                                                            </button>
                                                     		</div>
                                                     	</div>
                                                     </form>
