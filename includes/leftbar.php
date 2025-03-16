@@ -1,7 +1,7 @@
 <div class="left-sidebar box-shadow " style="background-color:rgb(9, 172, 136)">
                         <div class="sidebar-content">
                             <div class="user-info closed">
-                                <img src="http://placehold.it/90/c2c2c2?text=User" alt="John Doe" class="img-circle profile-img">
+                                <img src="images/admin.png" alt="Waruni Kobbekaduwa" class="img-circle profile-img">
                                 <h6 class="title">Admin</h6>
                                 <small class="info">Administrator</small>
                             </div>

@@ -40,7 +40,7 @@ include('includes/config.php');?>
                                 <h4>School Result Management System</h4>
                             </div>
                         </div>
-                        <div class="panel-body p-20">
+                        <div class="panel-body p-20" style="background-color:rgb(221, 223, 216);">
 
                             <form action="result.php" method="post">
                                 <div class="form-group">
@@ -67,7 +67,7 @@ include('includes/config.php');?>
 
                                 <div class="form-group mt-20">
                                     <div class="">
-                                        <button type="submit" class="btn btn-success btn-labeled pull-right">Search<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
+                                        <button type="submit" class="btn btn-success btn-labeled pull-right" style="background-color:rgb(175, 166, 43); border-color:rgb(241, 6, 53);">Search<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
